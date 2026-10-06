@@ -29,3 +29,24 @@ while True:
         site=input("Enter the website name: ")
         password=input("Enter your password: ")
         password[site] = password
+        with open("passwords.txt", "a") as file:
+            file.write(f"{site}:{password}\n")
+
+        print("Saved!")
+
+    elif choice == "2":
+        if not password:
+            print("No data")
+        else:
+            for site,password in password.items():
+                print(f"Website: {site} | Password: {password}")
+
+    elif choice == "3":
+        new_password = generate_password()
+        print(f"Generated Password: {new_password}")
+
+    elif choice == "4":
+        print("Exiting Window...")
+        break
+
+    
